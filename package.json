@@ -1,0 +1,76 @@
+{
+  "name": "@dong-gri/pixel-mosaic-lazy-loader",
+  "version": "1.3.4",
+  "description": "A lightweight pixel mosaic lazy loader for static and animated web images.",
+  "keywords": [
+    "lazy-loading",
+    "image-loader",
+    "pixel-mosaic",
+    "pixelated",
+    "canvas",
+    "gif",
+    "animated-webp",
+    "apng",
+    "progressive-enhancement",
+    "web-performance",
+    "web-accessibility"
+  ],
+  "license": "MIT",
+  "author": "Dongri",
+  "homepage": "https://lab.dongri.me/p/pixel-mosaic-lazy-loader",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/catgarret/Pixel-Mosaic-Lazy-Loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/catgarret/Pixel-Mosaic-Lazy-Loader/issues"
+  },
+  "main": "./dist/pixel-mosaic.js",
+  "module": "./dist/pixel-mosaic.mjs",
+  "browser": "./dist/pixel-mosaic.js",
+  "style": "./dist/pixel-mosaic.css",
+  "jsdelivr": "./dist/pixel-mosaic.min.js",
+  "unpkg": "./dist/pixel-mosaic.min.js",
+  "exports": {
+    ".": {
+      "browser": "./dist/pixel-mosaic.mjs",
+      "import": "./dist/pixel-mosaic.mjs",
+      "default": "./dist/pixel-mosaic.mjs"
+    },
+    "./min": {
+      "browser": "./dist/pixel-mosaic.min.mjs",
+      "import": "./dist/pixel-mosaic.min.mjs",
+      "default": "./dist/pixel-mosaic.min.mjs"
+    },
+    "./style.css": "./dist/pixel-mosaic.css",
+    "./style.min.css": "./dist/pixel-mosaic.min.css",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "docs/readme",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "./dist/pixel-mosaic.js",
+    "./dist/pixel-mosaic.min.js",
+    "./dist/pixel-mosaic.css",
+    "./dist/pixel-mosaic.min.css"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node --check pixel-mosaic.js && node --check dist/pixel-mosaic.js && node --check dist/pixel-mosaic.min.js && node --check dist/pixel-mosaic.mjs && node --check dist/pixel-mosaic.min.mjs",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run build && npm run check && npm run pack:check"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "demo": "https://git.dongri.me/example/pixel-mosaic-live/",
+  "devDependencies": {
+    "clean-css": "^5.3.3",
+    "terser": "^5.49.0"
+  }
+}
