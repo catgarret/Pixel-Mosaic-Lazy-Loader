@@ -2,7 +2,7 @@
 
 **English** · [한국어](./docs/readme/README.ko.md) · [日本語](./docs/readme/README.ja.md) · [繁體中文（台灣）](./docs/readme/README.zh-TW.md) · [ไทย](./docs/readme/README.th.md) · [简体中文](./docs/readme/README.zh-CN.md) · [繁體中文](./docs/readme/README.zh-Hant.md) · [Русский](./docs/readme/README.ru.md) · [Italiano](./docs/readme/README.it.md)
 
-[**Live Demo**](https://git.dongri.me/example/motionKit/) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
+[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
 
 Current version: **v1.3.4**
 
