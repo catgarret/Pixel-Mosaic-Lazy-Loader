@@ -1,26 +1,28 @@
 # Pixel Mosaic Lazy Loader
 
-[English](../../README.md) · [한국어](./README.ko.md) · **日本語** · [繁體中文（台灣）](./README.zh-TW.md) · [ไทย](./README.th.md) · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-Hant.md) · [Русский](./README.ru.md) · [Italiano](./README.it.md)
+[![npm version](https://img.shields.io/npm/v/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![npm downloads](https://img.shields.io/npm/dm/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![license](https://img.shields.io/npm/l/@dong-gri/pixel-mosaic-lazy-loader.svg)](../../LICENSE)
+![dependencies](https://img.shields.io/badge/dependencies-0-2ea44f)
 
-[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
+[English (default)](../../README.md) · [한국어](./README.ko.md) · **日本語** · [繁體中文（台灣）](./README.zh-TW.md) · [ไทย](./README.th.md) · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-Hant.md) · [Русский](./README.ru.md) · [Italiano](./README.it.md)
 
-現在のバージョン: **v1.3.4**
+別の低解像度プレースホルダーを用意せず、画像を **大きなピクセル → 小さなピクセル → 元画像**へ切り替えます。GIF・Animated WebP・APNG の再生も維持します。
 
-複数の `<img>` 要素を検出し、**大きなピクセル → 小さなピクセル → 元画像**の順で表示する、依存関係のない JavaScript 画像ローダーです。静止画像、GIF、Animated WebP、APNG に対応し、アニメーションの再生を維持します。
+![Pixel Mosaic Lazy Loader preview](./example.gif)
 
-## 主な機能
+[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**npm**](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
 
-- ページ読み込み後に追加された画像も含めた自動検出
-- 段階数プリセットとピクセルサイズの直接指定
-- 切り替え時間と開始遅延の設定
-- Photoshop のノイズのように動き続けるリアルタイムノイズ
-- GIF・Animated WebP・APNG の再生維持
-- プログレッシブエンハンスメントと段階的フォールバック
-- モバイル・低性能端末向けのパフォーマンス制御
-- `prefers-reduced-motion` を含むアクセシビリティ対応
-- `border-radius`、透過、`object-fit`、`object-position` 対応
+現在のリリース: **v1.3.4**
 
-## インストール
+## Pixel Mosaic Lazy Loader を選ぶ理由
+
+- 依存関係ゼロ、低解像度画像も不要
+- 静止画・GIF・Animated WebP・APNG に対応
+- 動的に追加された画像も自動検出
+- アクセシビリティと低性能環境向けの段階的フォールバック
+
+## クイックスタート
 
 ### npm
 
@@ -44,11 +46,16 @@ const mosaic = PixelMosaic.init({
 
 ### jsDelivr CDN
 
-npm に公開すると、同じファイルが jsDelivr から自動的に配信されます。本番ではバージョンを固定してください。
+npm に公開すると、同じファイルが jsDelivr から自動的に配信されます。
+
+以下の CDN URL はバージョンを省略し、npm の最新 `latest` リリースを自動的に使用します。
+
+> [!WARNING]
+> npm に新しいバージョンを公開すると、バージョン未指定の CDN URL も自動的に更新されます。
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 <script>
   PixelMosaic.init({
     duration: 1600,
@@ -65,21 +72,21 @@ npm に公開すると、同じファイルが jsDelivr から自動的に配信
 
 **jsDelivr**
 
-- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 **unpkg**
 
-- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 ### CDN の ES Module
 
 ```html
 <script type="module">
-  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.mjs';
+  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.mjs';
 
   PixelMosaic.init({
     duration: 1600,
@@ -95,9 +102,21 @@ npm に公開すると、同じファイルが jsDelivr から自動的に配信
 unpkg は公開 npm パッケージを自動的にミラーします。新しいバージョンの反映に数分かかる場合があります。
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 ```
+
+## 主な機能
+
+- ページ読み込み後に追加された画像も含めた自動検出
+- 段階数プリセットとピクセルサイズの直接指定
+- 切り替え時間と開始遅延の設定
+- Photoshop のノイズのように動き続けるリアルタイムノイズ
+- GIF・Animated WebP・APNG の再生維持
+- プログレッシブエンハンスメントと段階的フォールバック
+- モバイル・低性能端末向けのパフォーマンス制御
+- `prefers-reduced-motion` を含むアクセシビリティ対応
+- `border-radius`、透過、`object-fit`、`object-position` 対応
 
 ## 基本的な使い方
 

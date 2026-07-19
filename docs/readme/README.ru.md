@@ -1,26 +1,28 @@
 # Pixel Mosaic Lazy Loader
 
-[English](../../README.md) · [한국어](./README.ko.md) · [日本語](./README.ja.md) · [繁體中文（台灣）](./README.zh-TW.md) · [ไทย](./README.th.md) · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-Hant.md) · **Русский** · [Italiano](./README.it.md)
+[![npm version](https://img.shields.io/npm/v/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![npm downloads](https://img.shields.io/npm/dm/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![license](https://img.shields.io/npm/l/@dong-gri/pixel-mosaic-lazy-loader.svg)](../../LICENSE)
+![dependencies](https://img.shields.io/badge/dependencies-0-2ea44f)
 
-[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
+[English (default)](../../README.md) · [한국어](./README.ko.md) · [日本語](./README.ja.md) · [繁體中文（台灣）](./README.zh-TW.md) · [ไทย](./README.th.md) · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-Hant.md) · **Русский** · [Italiano](./README.it.md)
 
-Текущая версия: **v1.3.4**
+Показывает изображение как **крупные пиксели → мелкие пиксели → оригинал** без отдельного низкокачественного placeholder-файла и без остановки GIF, Animated WebP и APNG.
 
-Независимый JavaScript-загрузчик изображений, который обнаруживает элементы `<img>` и показывает их в последовательности **крупные пиксели → мелкие пиксели → оригинал**. Поддерживает статические изображения, GIF, Animated WebP и APNG без остановки анимации.
+![Pixel Mosaic Lazy Loader preview](./example.gif)
 
-## Возможности
+[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**npm**](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
 
-- Автоматическое обнаружение изображений, включая добавленные после загрузки страницы
-- Простое число этапов или собственный массив размеров пикселя
-- Настраиваемая длительность и задержка старта
-- Живой шум, похожий на Photoshop Noise
-- Сохранение воспроизведения GIF, Animated WebP и APNG
-- Прогрессивное улучшение и поэтапный fallback
-- Настройки производительности для мобильных и слабых устройств
-- Доступность, включая `prefers-reduced-motion`
-- Поддержка `border-radius`, прозрачности, `object-fit` и `object-position`
+Текущий релиз: **v1.3.4**
 
-## Установка
+## Зачем использовать Pixel Mosaic Lazy Loader?
+
+- Ноль зависимостей и никаких отдельных низкокачественных изображений
+- Поддержка статических изображений, GIF, Animated WebP и APNG
+- Автоматическое обнаружение динамически добавленных изображений
+- Пошаговый fallback для доступности и слабых устройств
+
+## Быстрый старт
 
 ### npm
 
@@ -44,11 +46,16 @@ const mosaic = PixelMosaic.init({
 
 ### jsDelivr CDN
 
-После публичной публикации в npm те же файлы автоматически доступны через jsDelivr. В продакшене фиксируйте версию.
+После публичной публикации в npm те же файлы автоматически становятся доступны через jsDelivr.
+
+В URL CDN ниже версия не указана, поэтому автоматически используется текущий релиз npm с тегом `latest`.
+
+> [!WARNING]
+> После публикации новой версии npm CDN-адреса без версии также обновятся автоматически.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 <script>
   PixelMosaic.init({
     duration: 1600,
@@ -65,21 +72,21 @@ const mosaic = PixelMosaic.init({
 
 **jsDelivr**
 
-- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 **unpkg**
 
-- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 ### ES Module через CDN
 
 ```html
 <script type="module">
-  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.mjs';
+  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.mjs';
 
   PixelMosaic.init({
     duration: 1600,
@@ -95,9 +102,21 @@ const mosaic = PixelMosaic.init({
 unpkg автоматически зеркалирует публичные npm-пакеты. Новая версия может появиться через несколько минут.
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 ```
+
+## Возможности
+
+- Автоматическое обнаружение изображений, включая добавленные после загрузки страницы
+- Простое число этапов или собственный массив размеров пикселя
+- Настраиваемая длительность и задержка старта
+- Живой шум, похожий на Photoshop Noise
+- Сохранение воспроизведения GIF, Animated WebP и APNG
+- Прогрессивное улучшение и поэтапный fallback
+- Настройки производительности для мобильных и слабых устройств
+- Доступность, включая `prefers-reduced-motion`
+- Поддержка `border-radius`, прозрачности, `object-fit` и `object-position`
 
 ## Базовое использование
 

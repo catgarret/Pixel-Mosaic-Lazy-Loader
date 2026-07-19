@@ -1,26 +1,28 @@
 # Pixel Mosaic Lazy Loader
 
-[English](../../README.md) · [한국어](./README.ko.md) · [日本語](./README.ja.md) · [繁體中文（台灣）](./README.zh-TW.md) · [ไทย](./README.th.md) · **简体中文** · [繁體中文](./README.zh-Hant.md) · [Русский](./README.ru.md) · [Italiano](./README.it.md)
+[![npm version](https://img.shields.io/npm/v/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![npm downloads](https://img.shields.io/npm/dm/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![license](https://img.shields.io/npm/l/@dong-gri/pixel-mosaic-lazy-loader.svg)](../../LICENSE)
+![dependencies](https://img.shields.io/badge/dependencies-0-2ea44f)
 
-[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
+[English (default)](../../README.md) · [한국어](./README.ko.md) · [日本語](./README.ja.md) · [繁體中文（台灣）](./README.zh-TW.md) · [ไทย](./README.th.md) · **简体中文** · [繁體中文](./README.zh-Hant.md) · [Русский](./README.ru.md) · [Italiano](./README.it.md)
 
-当前版本: **v1.3.2**
+无需单独制作低分辨率占位图，即可让图片按 **大像素 → 小像素 → 原图** 显示，并保持 GIF、Animated WebP 与 APNG 持续播放。
 
-一个零依赖的 JavaScript 图片加载器，可检测多个 `<img>` 元素，并按 **大像素 → 小像素 → 原图** 的顺序显示。支持静态图片、GIF、Animated WebP 和 APNG，并保持动画持续播放。
+![Pixel Mosaic Lazy Loader preview](./example.gif)
 
-## 主要功能
+[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**npm**](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
 
-- 自动检测图片，包括页面加载后新增的图片
-- 支持简单的阶段数设置和自定义像素尺寸数组
-- 可设置过渡时间和开始延迟
-- 类似 Photoshop 噪点的实时动态颗粒
-- 保持 GIF、Animated WebP 和 APNG 播放
-- 渐进增强与多级降级
-- 针对移动端和低性能设备的性能控制
-- 支持 `prefers-reduced-motion` 等无障碍设置
-- 支持 `border-radius`、透明度、`object-fit`、`object-position`
+当前版本: **v1.3.4**
 
-## 安装
+## 为什么使用 Pixel Mosaic Lazy Loader？
+
+- 零依赖，无需额外低分辨率图片
+- 支持静态图片、GIF、Animated WebP 和 APNG
+- 自动检测动态新增的图片
+- 为无障碍与低性能环境提供分级降级
+
+## 快速开始
 
 ### npm
 
@@ -44,11 +46,16 @@ const mosaic = PixelMosaic.init({
 
 ### jsDelivr CDN
 
-发布到公开 npm 后，相同文件会自动通过 jsDelivr 提供。生产环境请固定版本。
+发布到公开 npm 后，相同文件会自动通过 jsDelivr 提供。
+
+以下 CDN 地址省略版本号，会自动使用 npm 当前的 `latest` 版本。
+
+> [!WARNING]
+> 发布新的 npm 版本后，未指定版本号的 CDN 地址也会自动更新。
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 <script>
   PixelMosaic.init({
     duration: 1600,
@@ -65,21 +72,21 @@ const mosaic = PixelMosaic.init({
 
 **jsDelivr**
 
-- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 **unpkg**
 
-- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 ### CDN ES Module
 
 ```html
 <script type="module">
-  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.mjs';
+  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.mjs';
 
   PixelMosaic.init({
     duration: 1600,
@@ -95,9 +102,21 @@ const mosaic = PixelMosaic.init({
 unpkg 会自动镜像所有公开 npm 包，新版本可能需要几分钟才会出现。
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 ```
+
+## 主要功能
+
+- 自动检测图片，包括页面加载后新增的图片
+- 支持简单的阶段数设置和自定义像素尺寸数组
+- 可设置过渡时间和开始延迟
+- 类似 Photoshop 噪点的实时动态颗粒
+- 保持 GIF、Animated WebP 和 APNG 播放
+- 渐进增强与多级降级
+- 针对移动端和低性能设备的性能控制
+- 支持 `prefers-reduced-motion` 等无障碍设置
+- 支持 `border-radius`、透明度、`object-fit`、`object-position`
 
 ## 基本用法
 

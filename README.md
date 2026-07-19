@@ -1,30 +1,62 @@
 # Pixel Mosaic Lazy Loader
 
-**English** · [한국어](./docs/readme/README.ko.md) · [日本語](./docs/readme/README.ja.md) · [繁體中文（台灣）](./docs/readme/README.zh-TW.md) · [ไทย](./docs/readme/README.th.md) · [简体中文](./docs/readme/README.zh-CN.md) · [繁體中文](./docs/readme/README.zh-Hant.md) · [Русский](./docs/readme/README.ru.md) · [Italiano](./docs/readme/README.it.md)
+[![npm version](https://img.shields.io/npm/v/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![npm downloads](https://img.shields.io/npm/dm/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![license](https://img.shields.io/npm/l/@dong-gri/pixel-mosaic-lazy-loader.svg)](./LICENSE)
+![dependencies](https://img.shields.io/badge/dependencies-0-2ea44f)
 
-[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
+**English (default)** · [한국어](./docs/readme/README.ko.md) · [日本語](./docs/readme/README.ja.md) · [繁體中文（台灣）](./docs/readme/README.zh-TW.md) · [ไทย](./docs/readme/README.th.md) · [简体中文](./docs/readme/README.zh-CN.md) · [繁體中文](./docs/readme/README.zh-Hant.md) · [Русский](./docs/readme/README.ru.md) · [Italiano](./docs/readme/README.it.md)
 
-Current version: **v1.3.4**
+Turn any `<img>` into a **large-pixel → smaller-pixel → original image** reveal—without creating separate placeholder files or freezing GIF, Animated WebP, or APNG playback.
 
-A dependency-free JavaScript image loader that detects `<img>` elements and reveals them from **large pixels → smaller pixels → the original image**. It supports static images, GIF, Animated WebP, and APNG while preserving animation playback.
+![Pixel Mosaic Lazy Loader preview](./docs/readme/example.gif)
 
-## Features
+[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**npm**](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
 
-- Automatic image detection, including images added after page load
-- Simple step-count presets or custom pixel-size arrays
-- Configurable duration and start delay
-- Real-time Photoshop-like animated noise
-- GIF, Animated WebP, and APNG playback preservation
-- Progressive enhancement and graceful fallback
-- Responsive performance controls for mobile and low-end devices
-- Accessibility support, including `prefers-reduced-motion`
-- `border-radius`, alpha transparency, `object-fit`, and `object-position` support
+Current release: **v1.3.4**
 
-## Installation
+## Why Pixel Mosaic Lazy Loader?
+
+- **Zero dependencies** and no separate low-resolution placeholder assets
+- Works with static images, GIF, Animated WebP, and APNG
+- Preserves animated-image playback through direct decoding or animation-safe fallback
+- Automatically detects existing and dynamically inserted images
+- Supports global options and per-image `data-*` overrides
+- Keeps the original `<img>`, `alt` text, transparency, `border-radius`, `object-fit`, and `object-position`
+- Includes reduced-motion handling and progressive fallback for older browsers
+
+## Quick start
+
+### CDN — latest npm release
+
+The URLs below intentionally omit a version, so they always follow the package's current npm `latest` release.
+
+> [!WARNING]
+> Publishing a new npm release updates these unversioned CDN URLs automatically. Avoid breaking changes unless you publish a new major version.
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css">
+
+<img
+  data-pixel-mosaic
+  src="/images/example.gif"
+  width="1280"
+  height="720"
+  alt="Animated product preview"
+>
+
+<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js"></script>
+<script>
+  PixelMosaic.init({
+    duration: 1600,
+    startDelay: 100,
+    steps: 'auto',
+    stepCount: 8
+  });
+</script>
+```
 
 ### npm
-
-Use the package with Vite, webpack, Parcel, or another ESM-compatible build tool.
 
 ```bash
 npm install @dong-gri/pixel-mosaic-lazy-loader
@@ -42,65 +74,22 @@ const mosaic = PixelMosaic.init({
 });
 ```
 
-### jsDelivr CDN
+## CDN files
 
-Publishing the package to npm automatically makes the same files available through jsDelivr. The URLs below omit the package version and therefore always resolve to the latest npm release.
+### jsDelivr
 
-> [!WARNING]
-> Unversioned CDN URLs update automatically when a new npm version is published. A breaking release can therefore affect existing sites immediately.
+- Minified JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- Minified ES module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- Minified CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
+- Readable JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js`
+- Readable ES module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.mjs`
+- Readable CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css`
 
-```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
-<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
-<script>
-  PixelMosaic.init({
-    duration: 1600,
-    startDelay: 100,
-    steps: 'auto',
-    stepCount: 8
-  });
-</script>
-```
+### unpkg
 
-#### Minified CDN files
-
-Use these smaller production builds when you do not need readable source files.
-
-**jsDelivr**
-
-- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
-- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
-- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
-
-**unpkg**
-
-- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
-- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
-- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
-
-### ES module via CDN
-
-```html
-<script type="module">
-  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.mjs';
-
-  PixelMosaic.init({
-    duration: 1600,
-    startDelay: 100,
-    steps: 'auto',
-    stepCount: 8
-  });
-</script>
-```
-
-### unpkg CDN
-
-unpkg mirrors every public npm package. The URLs below omit the package version and therefore follow the latest npm release. A newly published version may take a few minutes to appear.
-
-```html
-<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
-<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
-```
+- Minified JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- Minified ES module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- Minified CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 ## Basic usage
 

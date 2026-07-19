@@ -1,26 +1,28 @@
 # Pixel Mosaic Lazy Loader
 
-[English](../../README.md) · [한국어](./README.ko.md) · [日本語](./README.ja.md) · [繁體中文（台灣）](./README.zh-TW.md) · **ไทย** · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-Hant.md) · [Русский](./README.ru.md) · [Italiano](./README.it.md)
+[![npm version](https://img.shields.io/npm/v/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![npm downloads](https://img.shields.io/npm/dm/@dong-gri/pixel-mosaic-lazy-loader.svg)](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader)
+[![license](https://img.shields.io/npm/l/@dong-gri/pixel-mosaic-lazy-loader.svg)](../../LICENSE)
+![dependencies](https://img.shields.io/badge/dependencies-0-2ea44f)
 
-[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
+[English (default)](../../README.md) · [한국어](./README.ko.md) · [日本語](./README.ja.md) · [繁體中文（台灣）](./README.zh-TW.md) · **ไทย** · [简体中文](./README.zh-CN.md) · [繁體中文](./README.zh-Hant.md) · [Русский](./README.ru.md) · [Italiano](./README.it.md)
 
-เวอร์ชันปัจจุบัน: **v1.3.4**
+เปลี่ยนรูปจาก **พิกเซลขนาดใหญ่ → พิกเซลขนาดเล็ก → รูปต้นฉบับ** โดยไม่ต้องสร้างภาพความละเอียดต่ำแยก และยังคงเล่น GIF, Animated WebP และ APNG ต่อเนื่อง
 
-ตัวโหลดรูปภาพ JavaScript แบบไม่ต้องพึ่งไลบรารีอื่น ซึ่งตรวจจับ `<img>` และแสดงผลจาก **พิกเซลใหญ่ → พิกเซลเล็ก → รูปต้นฉบับ** รองรับภาพนิ่ง GIF, Animated WebP และ APNG โดยไม่หยุดการเล่นแอนิเมชัน
+![Pixel Mosaic Lazy Loader preview](./example.gif)
 
-## คุณสมบัติหลัก
+[**Live Demo**](https://git.dongri.me/example/pixel-mosaic-live/) · [**npm**](https://www.npmjs.com/package/@dong-gri/pixel-mosaic-lazy-loader) · [**Blog Post**](https://lab.dongri.me/p/pixel-mosaic-lazy-loader)
 
-- ตรวจจับรูปภาพอัตโนมัติ รวมถึงรูปที่เพิ่มภายหลัง
-- ตั้งค่าจำนวนขั้นแบบง่ายหรือระบุขนาดพิกเซลเอง
-- กำหนดระยะเวลาและเวลาหน่วงก่อนเริ่ม
-- นอยส์แบบเคลื่อนไหวเรียลไทม์คล้าย Photoshop
-- คงการเล่น GIF, Animated WebP และ APNG
-- Progressive enhancement และ fallback หลายระดับ
-- ควบคุมประสิทธิภาพสำหรับมือถือและอุปกรณ์สเปกต่ำ
-- รองรับการเข้าถึง รวมถึง `prefers-reduced-motion`
-- รองรับ `border-radius`, ความโปร่งใส, `object-fit`, `object-position`
+รุ่นปัจจุบัน: **v1.3.4**
 
-## การติดตั้ง
+## ทำไมต้องใช้ Pixel Mosaic Lazy Loader?
+
+- ไม่มี dependency และไม่ต้องมีภาพ placeholder แยก
+- รองรับภาพนิ่ง, GIF, Animated WebP และ APNG
+- ตรวจจับภาพที่เพิ่มภายหลังโดยอัตโนมัติ
+- มี fallback แบบเป็นขั้นสำหรับ accessibility และอุปกรณ์สเปกต่ำ
+
+## เริ่มต้นอย่างรวดเร็ว
 
 ### npm
 
@@ -44,11 +46,16 @@ const mosaic = PixelMosaic.init({
 
 ### jsDelivr CDN
 
-เมื่อเผยแพร่แพ็กเกจสาธารณะบน npm ไฟล์เดียวกันจะพร้อมใช้ผ่าน jsDelivr โดยอัตโนมัติ ควรล็อกเวอร์ชันในระบบจริง
+เมื่อเผยแพร่แพ็กเกจสาธารณะบน npm ไฟล์เดียวกันจะพร้อมใช้ผ่าน jsDelivr โดยอัตโนมัติ
+
+URL CDN ด้านล่างไม่ระบุเวอร์ชัน จึงใช้รุ่น `latest` ปัจจุบันจาก npm โดยอัตโนมัติ
+
+> [!WARNING]
+> เมื่อเผยแพร่ npm รุ่นใหม่ URL CDN ที่ไม่ระบุเวอร์ชันจะอัปเดตตามโดยอัตโนมัติ
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 <script>
   PixelMosaic.init({
     duration: 1600,
@@ -65,21 +72,21 @@ const mosaic = PixelMosaic.init({
 
 **jsDelivr**
 
-- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 **unpkg**
 
-- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.js`
-- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.mjs`
-- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.min.css`
+- JavaScript: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.js`
+- ES Module: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.mjs`
+- CSS: `https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.min.css`
 
 ### ES Module ผ่าน CDN
 
 ```html
 <script type="module">
-  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.mjs';
+  import PixelMosaic from 'https://cdn.jsdelivr.net/npm/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.mjs';
 
   PixelMosaic.init({
     duration: 1600,
@@ -95,9 +102,21 @@ const mosaic = PixelMosaic.init({
 unpkg มิเรอร์แพ็กเกจ npm สาธารณะโดยอัตโนมัติ เวอร์ชันใหม่อาจใช้เวลาหลายนาทีจึงจะปรากฏ
 
 ```html
-<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.css">
-<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader@1.3.4/dist/pixel-mosaic.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.css">
+<script src="https://unpkg.com/@dong-gri/pixel-mosaic-lazy-loader/dist/pixel-mosaic.js"></script>
 ```
+
+## คุณสมบัติหลัก
+
+- ตรวจจับรูปภาพอัตโนมัติ รวมถึงรูปที่เพิ่มภายหลัง
+- ตั้งค่าจำนวนขั้นแบบง่ายหรือระบุขนาดพิกเซลเอง
+- กำหนดระยะเวลาและเวลาหน่วงก่อนเริ่ม
+- นอยส์แบบเคลื่อนไหวเรียลไทม์คล้าย Photoshop
+- คงการเล่น GIF, Animated WebP และ APNG
+- Progressive enhancement และ fallback หลายระดับ
+- ควบคุมประสิทธิภาพสำหรับมือถือและอุปกรณ์สเปกต่ำ
+- รองรับการเข้าถึง รวมถึง `prefers-reduced-motion`
+- รองรับ `border-radius`, ความโปร่งใส, `object-fit`, `object-position`
 
 ## วิธีใช้พื้นฐาน
 
