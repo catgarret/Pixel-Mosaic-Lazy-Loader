@@ -252,4 +252,4 @@ mosaic.destroy();
 
 ## ライセンス
 
-MIT License.
+MIT © [dongri.me](https://dongri.me) · AI バイブコーディングで作りました。
