@@ -252,4 +252,4 @@ mosaic.destroy();
 
 ## 라이선스
 
-MIT License.
+MIT © [dongri.me](https://dongri.me) · AI 바이브코딩으로 만들었습니다.
