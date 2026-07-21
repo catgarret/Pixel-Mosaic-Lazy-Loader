@@ -252,4 +252,4 @@ La demo pubblica supporta coreano, inglese, giapponese, cinese tradizionale per 
 
 ## Licenza
 
-MIT License.
+MIT © [dongri.me](https://dongri.me) · Realizzato con AI vibe-coding.
