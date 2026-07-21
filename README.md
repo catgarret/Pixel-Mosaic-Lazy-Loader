@@ -225,4 +225,4 @@ The public demo supports Korean, English, Japanese, Traditional Chinese for Taiw
 
 ## License
 
-MIT License.
+MIT © [dongri.me](https://dongri.me) · Built with AI vibe-coding.
