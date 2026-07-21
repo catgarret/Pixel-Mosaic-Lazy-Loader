@@ -252,4 +252,4 @@ mosaic.destroy();
 
 ## 许可证
 
-MIT License.
+MIT © [dongri.me](https://dongri.me) · 使用 AI 氛围编程（vibe coding）打造。
