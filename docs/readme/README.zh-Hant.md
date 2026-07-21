@@ -252,4 +252,4 @@ mosaic.destroy();
 
 ## 授權
 
-MIT License.
+問題與錯誤回報：[GitHub Issues](https://github.com/catgarret/Opin/issues) · official@dongri.me
