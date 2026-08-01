@@ -2,30 +2,21 @@ name: Release
 
 on:
   push:
-    branches:
-      - main
+    tags:
+      - 'v*'
 
 permissions:
   contents: write
-  pull-requests: write
   id-token: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: Create or update release
-        id: release
-        uses: googleapis/release-please-action@v5
-        with:
-          release-type: node
-
-      - name: Check out the release
-        if: ${{ steps.release.outputs.release_created }}
+      - name: Check out source
         uses: actions/checkout@v6
 
       - name: Set up Node.js
-        if: ${{ steps.release.outputs.release_created }}
         uses: actions/setup-node@v6
         with:
           node-version: '24'
@@ -33,16 +24,31 @@ jobs:
           package-manager-cache: false
 
       - name: Install dependencies
-        if: ${{ steps.release.outputs.release_created }}
         run: npm ci
 
       - name: Verify package
-        if: ${{ steps.release.outputs.release_created }}
         run: |
           npm run build
           npm run check
           npm run pack:check
 
+      - name: Verify tag and package versions
+        run: |
+          test "${GITHUB_REF_NAME}" = "v$(node -p "require('./package.json').version")"
+
       - name: Publish to npm
-        if: ${{ steps.release.outputs.release_created }}
         run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create GitHub Release
+        uses: actions/github-script@v8
+        with:
+          script: |
+            await github.rest.repos.createRelease({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag_name: context.ref.replace('refs/tags/', ''),
+              name: context.ref.replace('refs/tags/', ''),
+              generate_release_notes: true
+            });
