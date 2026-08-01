@@ -217,6 +217,10 @@ mosaic.destroy();
 
 The public demo supports Korean, English, Japanese, Traditional Chinese for Taiwan, Thai, Simplified Chinese, Traditional Chinese, Russian, and Italian. It detects the browser language, remembers the selection, and accepts `?lang=en`, `?lang=ja`, and other locale parameters.
 
+## More motion with Kineto
+
+Like this effect? Explore pixel mosaic and more web motions in [Kineto](https://kineto.dongri.me/). Tune live, copy code, and ship.
+
 ## Limitations
 
 - Complex transforms, masks, or multi-layer `clip-path` combinations may not align perfectly with the Canvas overlay

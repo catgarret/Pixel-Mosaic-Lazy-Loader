@@ -244,6 +244,10 @@ mosaic.destroy();
 
 La demo pubblica supporta coreano, inglese, giapponese, cinese tradizionale per Taiwan, thailandese, cinese semplificato, cinese tradizionale, russo e italiano. Rileva la lingua del browser, ricorda la selezione e accetta parametri URL come `?lang=en`.
 
+## Altri effetti con Kineto
+
+Ti piace questo effetto? Scopri il mosaico pixel e altri effetti web in [Kineto](https://kineto.dongri.me/). Personalizzali e copia subito il codice.
+
 ## Limitazioni
 
 - Transform, maschere o combinazioni `clip-path` complesse potrebbero non allinearsi perfettamente al Canvas

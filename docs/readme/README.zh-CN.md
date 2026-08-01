@@ -244,6 +244,10 @@ mosaic.destroy();
 
 公开演示支持韩语、英语、日语、台湾繁体中文、泰语、简体中文、繁体中文、俄语和意大利语。可自动检测浏览器语言、保存选择，并支持 `?lang=en` 等 URL 参数。
 
+## 在 Kineto 探索更多动效
+
+喜欢这个效果吗？前往 [Kineto](https://kineto.dongri.me/) 探索像素马赛克和更多网页动效。实时调节，直接复制代码。
+
 ## 限制
 
 - 复杂 transform、遮罩或多层 `clip-path` 可能无法与 Canvas 完全对齐
